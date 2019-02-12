@@ -1,25 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <odoo>
-    <record model="ir.ui.view" id="course_form_view">
-        <field name="name">course.form</field>
+    <record model="ir.ui.view" id="course_tree_view">
+        <field name="name">course.tree</field>
         <field name="model">openacademy.course</field>
         <field name="arch" type="xml">
-            <form string="Course form">
-                <sheet>
-                    <group>
-                        <field name="name"/>
-                        <field name="description"/>
-                    </group>
-                    <notebook>
-                        <page string="Description">
-                            <fiel name="description"/>
-                        </page>
-                        <page string="About">
-                            This is an example about
-                        </page>
-                    </notebook>
-                </sheet>
-            </form>
+            <tree string="Course tree">
+                <field name="name"/>
+                <field name="responsible_id"/>
+            </tree>
         </field>
     </record>
 
@@ -38,10 +26,14 @@
         <field name="name">session.form</field>
         <field name="model">openacademy.session</field>
         <field name="arch" type="xml">
-            <form string="Session form">
+            <form string="Session Form">
                 <sheet>
-                    <group>
+                    <group string="General">
+                        <field name="course_id"/>
                         <field name="name"/>
+                        <field name="instructor_id"/>
+                    </group>
+                    <group string="Schedule">
                         <field name="start_date"/>
                         <field name="duration"/>
                         <field name="seats"/>
