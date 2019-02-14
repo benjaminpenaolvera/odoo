@@ -63,16 +63,35 @@
                         <field name="course_id"/>
                         <field name="name"/>
                         <field name="instructor_id"/>
+                        <field name="active"/>
                     </group>
                     <group string="Schedule">
                         <field name="start_date"/>
                         <field name="duration"/>
                         <field name="seats"/>
+                        <field name="taken_seats" widget="progressbar"/>
                     </group>
                     <label for="attendee_ids"/>
                     <field name="attendee_ids"/>
                 </sheet>
             </form>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="session_tree_view">
+        <field name="name">session.tree</field>
+        <field name="model">openacademy.session</field>
+        <field name="arch" type="xml">
+            <tree string="Session tree">
+                <field name="course_id"/>
+                <field name="name"/>
+                <field name="instructor_id"/>
+                <field name="active"/>
+                <field name="start_date"/>
+                <field name="duration"/>
+                <field name="seats"/>
+                <field name="taken_seats" widget="progressbar"/>
+            </tree>
         </field>
     </record>
 </odoo>
